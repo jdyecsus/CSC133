@@ -23,7 +23,6 @@ public class SubHunter extends Activity {
 
     // These variables can be "seen"
     // throughout the SubHunter class
-
     int numberHorizontalPixels;
     int numberVerticalPixels;
     int blockSize;
@@ -37,6 +36,8 @@ public class SubHunter extends Activity {
     int shotsTaken;
     int distanceFromSub;
     boolean debugging = true;
+    int size=50;
+
 
     // Here are all the objects(instances)
     // of classes that we need to do some drawing
@@ -244,40 +245,33 @@ public class SubHunter extends Activity {
         newGame();
     }
 
-    // This code prints the debugging text
-    public void printDebuggingText(){
+    public void printDebuggingText() {
         paint.setTextSize(blockSize);
-        canvas.drawText("numberHorizontalPixels = "
-                        + numberHorizontalPixels,
-                50, blockSize * 3, paint);
-        canvas.drawText("numberVerticalPixels = "
-                        + numberVerticalPixels,
-                50, blockSize * 4, paint);
-        canvas.drawText("blockSize = " + blockSize,
-                50, blockSize * 5, paint);
-        canvas.drawText("gridWidth = " + gridWidth,
-                50, blockSize * 6, paint);
-        canvas.drawText("gridHeight = " + gridHeight,
-                50, blockSize * 7, paint);
-        canvas.drawText("horizontalTouched = " +
-                        horizontalTouched, 50,
-                blockSize * 8, paint);
-        canvas.drawText("verticalTouched = " +
-                        verticalTouched, 50,
-                blockSize * 9, paint);
-        canvas.drawText("subHorizontalPosition = " +
-                        subHorizontalPosition, 50,
-                blockSize * 10, paint);
-        canvas.drawText("subVerticalPosition = " +
-                        subVerticalPosition, 50,
-                blockSize * 11, paint);
-        canvas.drawText("hit = " + hit,
-                50, blockSize * 12, paint);
-        canvas.drawText("shotsTaken = " +
-                        shotsTaken,
-                50, blockSize * 13, paint);
-        canvas.drawText("debugging = " + debugging,
-                50, blockSize * 14, paint);
 
+        debugFormula("numberHorizontalPixels", numberHorizontalPixels,3);
+        debugFormula("numberVerticalPixels", numberVerticalPixels, 4);
+
+        debugFormula("blockSize", blockSize, 5);
+
+        debugFormula("gridWidth", gridWidth,6);
+        debugFormula("gridHeight", gridHeight, 7);
+
+        debugFormula("horizontalTouched", horizontalTouched, 8);
+        debugFormula("verticalTouched", verticalTouched,  9);
+
+        debugFormula("subHorizontalPosition", subHorizontalPosition,  10);
+        debugFormula("subVerticalPosition", subVerticalPosition,  11);
+
+        debugFormula("shotsTaken", shotsTaken, 13);
+
+        debugBoolean("hit", hit, 12);
+        debugBoolean("debugging", debugging,  14);
+    }
+    public void debugFormula(String variableName, float variableValue,float blockMultiply){
+        canvas.drawText(variableName +" = " + variableValue, size, blockSize * blockMultiply, paint);
+    }
+
+    public void debugBoolean(String variableName, boolean booleanValue,float blockMultiply){
+        canvas.drawText(variableName +" = " + booleanValue, size, blockSize * blockMultiply, paint);
     }
 }
