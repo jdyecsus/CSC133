@@ -19,6 +19,7 @@ import java.util.Random;
 public class SubHunter extends Activity {
 
     // These are public variables for the class
+    //Hello For Test
     int numberHorizontalPixels;
     int numberVerticalPixels;
     int blockSize;
