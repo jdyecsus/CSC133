@@ -2,6 +2,7 @@ package com.example.subhunter;
 
 public class DebugTexts extends SubHunter{
 
+    //Testing push
     private final int size=50;
     // This code prints the debugging text
     public void printDebuggingText() {
