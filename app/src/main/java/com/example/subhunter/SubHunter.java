@@ -23,28 +23,28 @@ public class SubHunter extends Activity {
 
     // These variables can be "seen"
     // throughout the SubHunter class
-    int numberHorizontalPixels;
-    int numberVerticalPixels;
-    int blockSize;
-    int gridWidth = 40;
-    int gridHeight;
-    float horizontalTouched = -100;
-    float verticalTouched = -100;
-    int subHorizontalPosition;
-    int subVerticalPosition;
-    boolean hit = false;
-    int shotsTaken;
-    int distanceFromSub;
-    boolean debugging = true;
-    int size=50;
+    static int numberHorizontalPixels;
+    static int numberVerticalPixels;
+    static int blockSize;
+    static int gridWidth = 40;
+    static int gridHeight;
+    static float horizontalTouched = -100;
+    static float verticalTouched = -100;
+    static int subHorizontalPosition;
+    static int subVerticalPosition;
+    static boolean hit = false;
+    static int shotsTaken;
+    static int distanceFromSub;
+    static boolean debugging = true;
+    int size = 50;
 
 
     // Here are all the objects(instances)
     // of classes that we need to do some drawing
-    ImageView gameView;
-    Bitmap blankBitmap;
-    Canvas canvas;
-    Paint paint;
+    static ImageView gameView;
+    static Bitmap blankBitmap;
+    static Canvas canvas;
+    static Paint paint;
 
 
     /*
@@ -155,7 +155,7 @@ public class SubHunter extends Activity {
 
         Log.d("Debugging", "In draw");
         if (debugging) {
-            printDebuggingText();
+            DebugTexts.printDebuggingText();
         }
     }
 
@@ -245,33 +245,4 @@ public class SubHunter extends Activity {
         newGame();
     }
 
-    public void printDebuggingText() {
-        paint.setTextSize(blockSize);
-
-        debugFormula("numberHorizontalPixels", numberHorizontalPixels,3);
-        debugFormula("numberVerticalPixels", numberVerticalPixels, 4);
-
-        debugFormula("blockSize", blockSize, 5);
-
-        debugFormula("gridWidth", gridWidth,6);
-        debugFormula("gridHeight", gridHeight, 7);
-
-        debugFormula("horizontalTouched", horizontalTouched, 8);
-        debugFormula("verticalTouched", verticalTouched,  9);
-
-        debugFormula("subHorizontalPosition", subHorizontalPosition,  10);
-        debugFormula("subVerticalPosition", subVerticalPosition,  11);
-
-        debugFormula("shotsTaken", shotsTaken, 13);
-
-        debugBoolean("hit", hit, 12);
-        debugBoolean("debugging", debugging,  14);
-    }
-    public void debugFormula(String variableName, float variableValue,float blockMultiply){
-        canvas.drawText(variableName +" = " + variableValue, size, blockSize * blockMultiply, paint);
-    }
-
-    public void debugBoolean(String variableName, boolean booleanValue,float blockMultiply){
-        canvas.drawText(variableName +" = " + booleanValue, size, blockSize * blockMultiply, paint);
-    }
 }
