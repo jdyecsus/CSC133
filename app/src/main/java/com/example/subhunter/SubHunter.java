@@ -11,7 +11,6 @@ import android.view.MotionEvent;
 import android.util.Log;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Paint;
 import android.graphics.Point;
 import android.view.Display;
 import android.widget.ImageView;
@@ -26,23 +25,14 @@ public class SubHunter extends Activity {
     static int blockSize;
     static int gridWidth = 40;
     static int gridHeight;
-    static float horizontalTouched = -100;
-    static float verticalTouched = -100;
     static int subHorizontalPosition;
     static int subVerticalPosition;
-    static boolean hit = false;
-    static int shotsTaken;
-    static int distanceFromSub;
-    static boolean debugging = true;
-    int size = 50;
-
 
     // Here are all the objects(instances)
     // of classes that we need to do some drawing
     static ImageView gameView;
     static Bitmap blankBitmap;
     static Canvas canvas;
-    static Paint paint;
 
 
 
@@ -71,15 +61,10 @@ public class SubHunter extends Activity {
         gridHeight = numberVerticalPixels / blockSize;
 
         // Initialize all the objects ready for drawing
-        blankBitmap = Bitmap.createBitmap(numberHorizontalPixels,
-                numberVerticalPixels,
-                Bitmap.Config.ARGB_8888);
-
-
+        blankBitmap = Bitmap.createBitmap(numberHorizontalPixels, numberVerticalPixels, Bitmap.Config.ARGB_8888);
 
         canvas = new Canvas(blankBitmap);
         gameView = new ImageView(this);
-        paint = new Paint();
 
         // Tell Android to set our drawing
         // as the view for this app
@@ -89,10 +74,6 @@ public class SubHunter extends Activity {
         Game.newGame();
         View.draw();
     }
-
-
-
-
 
     /*
         This part of the code will

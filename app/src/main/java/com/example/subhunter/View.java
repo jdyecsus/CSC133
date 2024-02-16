@@ -1,6 +1,7 @@
 package com.example.subhunter;
 
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.util.Log;
 
 public class View extends SubHunter{
@@ -9,6 +10,15 @@ public class View extends SubHunter{
         The grid lines, the HUD and
         the touch indicator
      */
+    static boolean debugging = true;
+    static Paint paint=new Paint();
+    static int distanceFromSub;
+    static int shotsTaken=0;
+    static float horizontalTouched, verticalTouched = -100;
+
+
+
+
     static void draw() {
         gameView.setImageBitmap(blankBitmap);
 
@@ -31,6 +41,7 @@ public class View extends SubHunter{
                     numberHorizontalPixels, blockSize * i,
                     paint);
         }
+
         // Draw the player's shot
         canvas.drawRect(horizontalTouched * blockSize,
                 verticalTouched * blockSize,
@@ -55,4 +66,7 @@ public class View extends SubHunter{
             DebugTexts.printDebuggingText();
         }
     }
+
+
+
 }
