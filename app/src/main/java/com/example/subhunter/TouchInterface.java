@@ -10,8 +10,6 @@ public class TouchInterface extends View{
         and determine a hit or miss
      */
     static boolean hit = false;
-    static int distanceFromSub;
-    static int shotsTaken=0;
 
     static void takeShot(float touchX, float touchY){
         Log.d("Debugging", "In takeShot");
@@ -21,8 +19,8 @@ public class TouchInterface extends View{
 
         // Convert the float screen coordinates
         // into int grid coordinates
-        horizontalTouched = (int)touchX/ blockSize;
-        verticalTouched = (int)touchY/ blockSize;
+        horizontalTouched = (int)(touchX/ blockSize);
+        verticalTouched = (int)(touchY/ blockSize);
 
         // Did the shot hit the sub?
         hit = horizontalTouched == subHorizontalPosition
