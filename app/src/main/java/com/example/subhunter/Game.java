@@ -11,11 +11,12 @@ public class Game extends  SubHunter{
         happen when the app is first started
         and after the player wins a game.
      */
+
+
     static void newGame(){
         Random random = new Random();
         subHorizontalPosition = random.nextInt(gridWidth);
         subVerticalPosition = random.nextInt(gridHeight);
-        shotsTaken = 0;
 
         Log.d("Debugging", "In newGame");
 

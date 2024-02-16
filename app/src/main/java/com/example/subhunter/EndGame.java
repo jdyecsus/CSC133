@@ -2,7 +2,7 @@ package com.example.subhunter;
 
 import android.graphics.Color;
 
-public class EndGame extends SubHunter{
+public class EndGame extends View{
     // This code says "BOOM!"
     static void boom(){
 
