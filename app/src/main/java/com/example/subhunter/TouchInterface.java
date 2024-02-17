@@ -11,7 +11,7 @@ public class TouchInterface extends View{
      */
     static boolean hit = false;
 
-    static void takeShot(float touchX, float touchY){
+     static void takeShot(float touchX, float touchY){
         Log.d("Debugging", "In takeShot");
 
         // Add one to the shotsTaken variable
@@ -28,20 +28,20 @@ public class TouchInterface extends View{
 
         // How far away horizontally and vertically
         // was the shot from the sub
-        int horizontalGap = (int)horizontalTouched -
-                subHorizontalPosition;
-        int verticalGap = (int)verticalTouched -
-                subVerticalPosition;
+        int horizontalGap = (int)horizontalTouched
+                - subHorizontalPosition;
+        int verticalGap = (int)verticalTouched
+                - subVerticalPosition;
 
         // Use Pythagoras's theorem to get the
         // distance travelled in a straight line
         distanceFromSub = (int)Math.sqrt(
-                Math.pow(horizontalGap,2)+
-                        (Math.pow(verticalGap,2)));
+                Math.pow(horizontalGap,2)
+                + Math.pow(verticalGap,2));
 
         // If there is a hit call boom
         if(hit)
-            EndGame.boom();
+            EndGame.draw();
             // Otherwise call draw as usual
         else View.draw();
     }

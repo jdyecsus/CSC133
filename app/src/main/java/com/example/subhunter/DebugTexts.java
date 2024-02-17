@@ -1,31 +1,32 @@
 package com.example.subhunter;
 
-public class DebugTexts extends TouchInterface{
+public class DebugTexts extends TouchInterface implements IPrintText{
 
     //Testing push
     private static final int size=50;
+
     // This code prints the debugging text
-    public static void printDebuggingText() {
+    static void draw() {
         paint.setTextSize(blockSize);
 
-        debugFormula("numberHorizontalPixels", numberHorizontalPixels,3);
-        debugFormula("numberVerticalPixels", numberVerticalPixels, 4);
+        String[] variableNames={"numberHorizontalPixels","numberVerticalPixels","blockSize",
+                "gridWidth","gridHeight","horizontalTouched","verticalTouched",
+                "subHorizontalPosition","subVerticalPosition","shotsTaken"};
 
-        debugFormula("blockSize", blockSize, 5);
+        float[] variableNumbers={numberHorizontalPixels,numberVerticalPixels,blockSize,
+                gridWidth,gridHeight,horizontalTouched,verticalTouched,
+                subHorizontalPosition,subVerticalPosition,shotsTaken};
 
-        debugFormula("gridWidth", gridWidth,6);
-        debugFormula("gridHeight", gridHeight, 7);
+        float[] blockMultiply={3,4,5,6,7,8,9,10,11,13};
 
-        debugFormula("horizontalTouched", horizontalTouched, 8);
-        debugFormula("verticalTouched", verticalTouched,  9);
-
-        debugFormula("subHorizontalPosition", subHorizontalPosition,  10);
-        debugFormula("subVerticalPosition", subVerticalPosition,  11);
-
-        debugFormula("shotsTaken", shotsTaken, 13);
+        //printing out all of the float variables
+        for(int i=0; i<variableNames.length;i++) {
+            debugFormula(variableNames[i], variableNumbers[i], blockMultiply[i]);
+        }
 
         debugBoolean("hit", hit, 12);
         debugBoolean("debugging", debugging,  14);
+
     }
     public static void debugFormula(String variableName, float variableValue, float blockMultiply){
         canvas.drawText(variableName +" = " + variableValue, size, blockSize * blockMultiply, paint);

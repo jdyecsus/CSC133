@@ -5,6 +5,9 @@ package com.example.subhunter;
 
 // These are all the classes of other people's
 // (Android) code that we use in Sub Hunt
+
+//worked on by
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -14,6 +17,8 @@ import android.graphics.Canvas;
 import android.graphics.Point;
 import android.view.Display;
 import android.widget.ImageView;
+
+import java.util.Random;
 
 
 public class SubHunter extends Activity {
@@ -71,10 +76,17 @@ public class SubHunter extends Activity {
         setContentView(gameView);
 
         Log.d("Debugging", "In onCreate");
-        Game.newGame();
-        View.draw();
+        newGame();
     }
 
+    public static void newGame(){
+        Random random = new Random();
+        subHorizontalPosition = random.nextInt(gridWidth);
+        subVerticalPosition = random.nextInt(gridHeight);
+
+        Log.d("Debugging", "In newGame");
+        View.draw();
+    }
     /*
         This part of the code will
         handle detecting that the player

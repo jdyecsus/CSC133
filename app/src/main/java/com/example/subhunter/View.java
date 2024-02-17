@@ -4,7 +4,10 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.Log;
 
-public class View extends SubHunter{
+interface IPrintText{
+    static void draw(){}
+}
+public class View extends SubHunter implements IPrintText{
     /*
         Here we will do all the drawing.
         The grid lines, the HUD and
@@ -13,11 +16,8 @@ public class View extends SubHunter{
     static boolean debugging = true;
     static Paint paint=new Paint();
     static int distanceFromSub;
-    static int shotsTaken=0;
+    static int shotsTaken;
     static float horizontalTouched, verticalTouched = -100;
-
-
-
 
     static void draw() {
         gameView.setImageBitmap(blankBitmap);
@@ -63,7 +63,7 @@ public class View extends SubHunter{
 
         Log.d("Debugging", "In draw");
         if (debugging) {
-            DebugTexts.printDebuggingText();
+            DebugTexts.draw();
         }
     }
 
