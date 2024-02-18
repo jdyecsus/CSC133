@@ -2,7 +2,7 @@ package com.example.subhunter;
 
 import android.graphics.Color;
 
-public class EndGame extends View implements IPrintText{
+public class EndGame extends TouchInterface implements IPrintText{
     // This code says "BOOM!"
     static void draw(){
 
@@ -25,6 +25,6 @@ public class EndGame extends View implements IPrintText{
                 blockSize * 8, blockSize * 18, paint);
 
         // Start a new game
-        newGame();
+        SubHunter.newGame();
     }
 }

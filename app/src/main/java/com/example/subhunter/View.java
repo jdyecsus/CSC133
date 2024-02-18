@@ -20,6 +20,7 @@ public class View extends SubHunter implements IPrintText{
     static float horizontalTouched, verticalTouched = -100;
 
     static void draw() {
+
         gameView.setImageBitmap(blankBitmap);
 
         // Wipe the screen with a white color
@@ -49,8 +50,6 @@ public class View extends SubHunter implements IPrintText{
                 (verticalTouched * blockSize)+ blockSize,
                 paint );
 
-
-        // Re-size the text appropriate for the
         // score and distance text
         paint.setTextSize(blockSize * 2);
         paint.setColor(Color.argb(255, 0, 0, 255));

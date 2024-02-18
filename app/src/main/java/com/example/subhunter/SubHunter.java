@@ -85,8 +85,8 @@ public class SubHunter extends Activity {
         subVerticalPosition = random.nextInt(gridHeight);
 
         Log.d("Debugging", "In newGame");
-        View.draw();
     }
+
     /*
         This part of the code will
         handle detecting that the player
