@@ -14,6 +14,7 @@ public class Game extends  SubHunter{
 
 
     static void newGame(){
+        TouchInterface.resetCount();
         Random random = new Random();
         subHorizontalPosition = random.nextInt(gridWidth);
         subVerticalPosition = random.nextInt(gridHeight);

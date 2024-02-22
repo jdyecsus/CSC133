@@ -1,5 +1,7 @@
 package com.example.subhunter;
 
+import static com.example.subhunter.TouchInterface.shotsTaken;
+
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.Log;
@@ -13,7 +15,6 @@ public class View extends SubHunter{
     static boolean debugging = true;
     static Paint paint=new Paint();
     static int distanceFromSub;
-    static int shotsTaken=0;
     static float horizontalTouched, verticalTouched = -100;
 
 
