@@ -11,15 +11,26 @@ public class Game extends  SubHunter{
         happen when the app is first started
         and after the player wins a game.
      */
-    static Random random = new Random();
-    static Submarine sub= new Submarine(random.nextInt(gridWidth),random.nextInt(gridHeight));
+    SubHunter subHunter= new SubHunter();
+    int gridWidth= subHunter.getGridWidth();
+    int gridHeight= subHunter.getGridHeight();
 
-    static void newGame(){
+
+    Random random = new Random();
+    Submarine sub= new Submarine(
+            random.nextInt(gridWidth),
+            random.nextInt(gridHeight));
+
+     void newGame(){
         TouchInterface.resetCount();
-        sub.setSubHorizontalPosition(random.nextInt(gridWidth));
-        sub.setSubVerticalPosition(random.nextInt(gridHeight));
+        sub.setSubHorizontalPosition(
+                random.nextInt(
+                        subHunter.getGridWidth()));
+
+        sub.setSubVerticalPosition(
+                random.nextInt(
+                        subHunter.getGridHeight()));
 
         Log.d("Debugging", "In newGame");
-        View.draw();
     }
 }

@@ -1,7 +1,5 @@
 package com.example.subhunter;
 
-//import static com.example.subhunter.TouchInterface.shotsTaken;
-
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.Log;
@@ -12,15 +10,12 @@ public class View extends Game{
         The grid lines, the HUD and
         the touch indicator
      */
-    static boolean debugging = true;
-    static Paint paint=new Paint();
-    static int distanceFromSub;
-    static float horizontalTouched, verticalTouched = -100;
+     boolean debugging = true;
+     Paint paint=new Paint();
 
 
 
-
-    static void draw() {
+     void draw() {
         gameView.setImageBitmap(blankBitmap);
 
         // Wipe the screen with a white color

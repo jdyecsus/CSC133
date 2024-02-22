@@ -2,9 +2,9 @@ package com.example.subhunter;
 
 public class DebugTexts extends TouchInterface{
 
-    private static final int size=50;
+    private final int size=50;
     // This code prints the debugging text
-    public static void printDebuggingText() {
+    public void printDebuggingText() {
         paint.setTextSize(blockSize);
 
         debugFormula("numberHorizontalPixels", numberHorizontalPixels,3);
@@ -27,11 +27,11 @@ public class DebugTexts extends TouchInterface{
         debugBoolean("debugging", debugging,  14);
     }
 
-    public static void debugFormula(String variableName, float variableValue, float blockMultiply){
+    public void debugFormula(String variableName, float variableValue, float blockMultiply){
         canvas.drawText(variableName +" = " + variableValue, size, blockSize * blockMultiply, paint);
     }
 
-    public static void debugBoolean(String variableName, boolean booleanValue, float blockMultiply){
+    public void debugBoolean(String variableName, boolean booleanValue, float blockMultiply){
         canvas.drawText(variableName +" = " + booleanValue, size, blockSize * blockMultiply, paint);
     }
 }

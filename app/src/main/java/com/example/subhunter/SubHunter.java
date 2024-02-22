@@ -19,20 +19,59 @@ public class SubHunter extends Activity {
 
     // These variables can be "seen"
     // throughout the SubHunter class
-    static int numberHorizontalPixels;
-    static int numberVerticalPixels;
-    static int blockSize;
-    static int gridWidth = 40;
-    static int gridHeight;
-
-    static int shotsTaken;
+     private int numberHorizontalPixels, numberVerticalPixels;
+     private int blockSize;
+    private final int gridWidth = 40;
+    private int gridHeight;
 
 
     // Here are all the objects(instances)
     // of classes that we need to do some drawing
-    static ImageView gameView;
-    static Bitmap blankBitmap;
-    static Canvas canvas;
+    public  ImageView gameView;
+    public Bitmap blankBitmap;
+    public Canvas canvas;
+
+    public int getNumberHorizontalPixels() {
+
+        return numberHorizontalPixels;
+    }
+
+    public void setNumberHorizontalPixels(int numberHorizontalPixels) {
+        this.numberHorizontalPixels = numberHorizontalPixels;
+    }
+
+    public int getNumberVerticalPixels() {
+
+        return numberVerticalPixels;
+    }
+
+    public void setNumberVerticalPixels(int numberVerticalPixels) {
+        this.numberVerticalPixels = numberVerticalPixels;
+    }
+
+    public int getBlockSize() {
+
+        return blockSize;
+    }
+
+    public void setBlockSize(int blockSize) {
+
+        this.blockSize = blockSize;
+    }
+
+    public int getGridWidth() {
+        return gridWidth;
+    }
+
+    public int getGridHeight() {
+        return gridHeight;
+    }
+
+    public void setGridHeight(int gridHeight) {
+
+        this.gridHeight = gridHeight;
+    }
+
 
     /*
         Android runs this code just before
@@ -53,13 +92,16 @@ public class SubHunter extends Activity {
 
 
         // Initialize our size based variables based on the screen resolution
-        numberHorizontalPixels = size.x;
-        numberVerticalPixels = size.y;
-        blockSize = numberHorizontalPixels / gridWidth;
-        gridHeight = numberVerticalPixels / blockSize;
+        setNumberHorizontalPixels(size.x);
+        setNumberVerticalPixels(size.y);
+
+        setBlockSize(getNumberHorizontalPixels()/getGridWidth());
+        setGridHeight(getNumberVerticalPixels()/getBlockSize());
+
 
         // Initialize all the objects ready for drawing
-        blankBitmap = Bitmap.createBitmap(numberHorizontalPixels, numberVerticalPixels, Bitmap.Config.ARGB_8888);
+        blankBitmap=Bitmap.createBitmap(getNumberHorizontalPixels(),
+                getNumberVerticalPixels(), Bitmap.Config.ARGB_8888);
 
         canvas = new Canvas(blankBitmap);
         gameView = new ImageView(this);
@@ -71,6 +113,7 @@ public class SubHunter extends Activity {
 
         Log.d("Debugging", "In onCreate");
         Game.newGame();
+        View.draw();
     }
 
     /*

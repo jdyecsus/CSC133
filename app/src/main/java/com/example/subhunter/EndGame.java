@@ -4,7 +4,9 @@ import android.graphics.Color;
 
 public class EndGame extends View{
     // This code says "BOOM!"
-    static void boom(){
+     void boom(){
+        SubHunter subHunter= new SubHunter();
+        int blockSize=subHunter.getBlockSize();
 
         gameView.setImageBitmap(blankBitmap);
 
@@ -13,9 +15,10 @@ public class EndGame extends View{
 
         // Draw some huge white text
         paint.setColor(Color.argb(255, 255, 255, 255));
-        paint.setTextSize(blockSize * 10);
 
-        canvas.drawText("BOOM!", blockSize * 4,
+        paint.setTextSize(blockSize * 10);
+        canvas.drawText("BOOM!",
+                blockSize * 4,
                 blockSize * 14, paint);
 
         // Draw some text to prompt restarting

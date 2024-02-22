@@ -2,39 +2,74 @@ package com.example.subhunter;
 
 import android.util.Log;
 
-public class TouchInterface extends View{
+public class TouchInterface extends Game{
 
-    static int shotsTaken=0;
+    private int shotsTaken, distanceFromSub;
+    private boolean hit;
+
+
+    public int getShotsTaken() {
+
+        return shotsTaken;
+    }
+
+    public void setShotsTaken(int shotsTaken) {
+        this.shotsTaken = shotsTaken;
+    }
+
+    public int getDistanceFromSub() {
+
+        return distanceFromSub;
+    }
+
+    public void setDistanceFromSub(int distanceFromSub) {
+
+        this.distanceFromSub = distanceFromSub;
+    }
+
+    public boolean isHit() {
+
+        return hit;
+    }
+
+    public void setHit(boolean hit) {
+
+        this.hit = hit;
+    }
+
+     public void resetCount() {
+        setShotsTaken(0);
+    }
+
+
     /*
-        The code here will execute when
-        the player taps the screen It will
-        calculate distance from the sub'
-        and determine a hit or miss
-     */
-    static boolean hit = false;
-
-    public static void resetCount() { shotsTaken=0; }
-
-    static void takeShot(float touchX, float touchY){
+    The code here will execute when
+    the player taps the screen It will
+    calculate distance from the sub'
+    and determine a hit or miss
+ */
+     void takeShot(float touchX, float touchY){
         Log.d("Debugging", "In takeShot");
 
         // Add one to the shotsTaken variable
-        shotsTaken ++;
+        shotsTaken++;
+
 
         // Convert the float screen coordinates
         // into int grid coordinates
-        horizontalTouched = (int)(touchX/ blockSize);
-        verticalTouched = (int)(touchY/ blockSize);
+         shotCount shot=new shotCount();
+         shot.setHorizontalTouched((int)(touchX/ blockSize));
+        shot.setverticalTouched( (int)(touchY/ blockSize));
 
-        // Did the shot hit the sub?
-        hit = horizontalTouched == sub.getSubHorizontalPosition()
-                && verticalTouched == sub.getSubVerticalPosition();
+         // Did the shot hit the sub?
+        setHit(horizontalTouched == sub.getSubHorizontalPosition()
+                && verticalTouched == sub.getSubVerticalPosition());
 
         // How far away horizontally and vertically
         // was the shot from the sub
-        int horizontalGap = (int)horizontalTouched -
+        int horizontalGap = horizontalTouched -
                 sub.getSubHorizontalPosition();
-        int verticalGap = (int)verticalTouched -
+        int verticalGap = verticalTouched -
                 sub.getSubVerticalPosition();
 
         // Use Pythagoras's theorem to get the
@@ -47,7 +82,7 @@ public class TouchInterface extends View{
 //        EndGame.boom();
 
         // If there is a hit call boom
-        if(hit)
+        if(isHit()==true)
             EndGame.boom();
             // Otherwise call draw as usual
         else View.draw();
