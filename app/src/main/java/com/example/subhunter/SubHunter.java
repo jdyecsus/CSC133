@@ -15,7 +15,6 @@ import android.graphics.Point;
 import android.view.Display;
 import android.widget.ImageView;
 
-
 public class SubHunter extends Activity {
 
     // These variables can be "seen"
@@ -25,16 +24,15 @@ public class SubHunter extends Activity {
     static int blockSize;
     static int gridWidth = 40;
     static int gridHeight;
-    static int subHorizontalPosition;
-    static int subVerticalPosition;
+
+    static int shotsTaken;
+
 
     // Here are all the objects(instances)
     // of classes that we need to do some drawing
     static ImageView gameView;
     static Bitmap blankBitmap;
     static Canvas canvas;
-
-
 
     /*
         Android runs this code just before
@@ -70,9 +68,9 @@ public class SubHunter extends Activity {
         // as the view for this app
         setContentView(gameView);
 
+
         Log.d("Debugging", "In onCreate");
         Game.newGame();
-        View.draw();
     }
 
     /*

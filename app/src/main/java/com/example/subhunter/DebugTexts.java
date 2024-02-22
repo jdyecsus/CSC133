@@ -18,14 +18,15 @@ public class DebugTexts extends TouchInterface{
         debugFormula("horizontalTouched", horizontalTouched, 8);
         debugFormula("verticalTouched", verticalTouched,  9);
 
-        debugFormula("subHorizontalPosition", subHorizontalPosition,  10);
-        debugFormula("subVerticalPosition", subVerticalPosition,  11);
+        debugFormula("subHorizontalPosition", sub.getSubHorizontalPosition(),  10);
+        debugFormula("subVerticalPosition",  sub.getSubVerticalPosition(),  11);
 
         debugFormula("shotsTaken", shotsTaken, 13);
 
         debugBoolean("hit", hit, 12);
         debugBoolean("debugging", debugging,  14);
     }
+
     public static void debugFormula(String variableName, float variableValue, float blockMultiply){
         canvas.drawText(variableName +" = " + variableValue, size, blockSize * blockMultiply, paint);
     }

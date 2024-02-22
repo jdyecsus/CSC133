@@ -1,12 +1,12 @@
 package com.example.subhunter;
 
-import static com.example.subhunter.TouchInterface.shotsTaken;
+//import static com.example.subhunter.TouchInterface.shotsTaken;
 
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.Log;
 
-public class View extends SubHunter{
+public class View extends Game{
     /*
         Here we will do all the drawing.
         The grid lines, the HUD and

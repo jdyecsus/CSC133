@@ -27,15 +27,15 @@ public class TouchInterface extends View{
         verticalTouched = (int)(touchY/ blockSize);
 
         // Did the shot hit the sub?
-        hit = horizontalTouched == subHorizontalPosition
-                && verticalTouched == subVerticalPosition;
+        hit = horizontalTouched == sub.getSubHorizontalPosition()
+                && verticalTouched == sub.getSubVerticalPosition();
 
         // How far away horizontally and vertically
         // was the shot from the sub
         int horizontalGap = (int)horizontalTouched -
-                subHorizontalPosition;
+                sub.getSubHorizontalPosition();
         int verticalGap = (int)verticalTouched -
-                subVerticalPosition;
+                sub.getSubVerticalPosition();
 
         // Use Pythagoras's theorem to get the
         // distance travelled in a straight line
