@@ -3,6 +3,8 @@ package com.example.subhunter;
 import android.util.Log;
 
 public class TouchInterface extends View{
+
+    static int shotsTaken=0;
     /*
         The code here will execute when
         the player taps the screen It will
@@ -10,6 +12,8 @@ public class TouchInterface extends View{
         and determine a hit or miss
      */
     static boolean hit = false;
+
+    public static void resetCount() { shotsTaken=0; }
 
     static void takeShot(float touchX, float touchY){
         Log.d("Debugging", "In takeShot");
@@ -38,6 +42,9 @@ public class TouchInterface extends View{
         distanceFromSub = (int)Math.sqrt(
                 Math.pow(horizontalGap,2)+
                         (Math.pow(verticalGap,2)));
+
+//        while(!hit){ View.draw(); }
+//        EndGame.boom();
 
         // If there is a hit call boom
         if(hit)
