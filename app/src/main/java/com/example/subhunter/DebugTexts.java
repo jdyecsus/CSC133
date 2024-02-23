@@ -3,7 +3,6 @@ package com.example.subhunter;
 public class DebugTexts extends TouchInterface{
 
     private static final int size=50;
-    // This code prints the debugging text
     public static void printDebuggingText() {
         paint.setTextSize(blockSize);
 

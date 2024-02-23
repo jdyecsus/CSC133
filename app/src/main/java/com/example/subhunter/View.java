@@ -19,31 +19,29 @@ public class View extends Game{
 
 
 
-
+// draws the background grid, player shot, and score on top of screen
     static void draw() {
         gameView.setImageBitmap(blankBitmap);
-
-        // Wipe the screen with a white color
+        //background
         canvas.drawColor(Color.argb(255, 255, 255, 255));
 
-        // Change the paint color to black
         paint.setColor(Color.argb(255, 0, 0, 0));
 
-        // Draw the vertical lines of the grid
+
+        //grid
         for(int i = 0; i < gridWidth; i++){
             canvas.drawLine(blockSize * i, 0,
                     blockSize * i, numberVerticalPixels,
                     paint);
         }
 
-        // Draw the horizontal lines of the grid
         for(int i = 0; i < gridHeight; i++){
             canvas.drawLine(0, blockSize * i,
                     numberHorizontalPixels, blockSize * i,
                     paint);
         }
 
-        // Draw the player's shot
+
         canvas.drawRect(horizontalTouched * blockSize,
                 verticalTouched * blockSize,
                 (horizontalTouched * blockSize) + blockSize,
@@ -51,8 +49,7 @@ public class View extends Game{
                 paint );
 
 
-        // Re-size the text appropriate for the
-        // score and distance text
+        //score
         paint.setTextSize(blockSize * 2);
         paint.setColor(Color.argb(255, 0, 0, 255));
         canvas.drawText(

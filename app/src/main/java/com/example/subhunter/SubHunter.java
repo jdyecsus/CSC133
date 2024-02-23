@@ -3,8 +3,10 @@
 // If so, keep YOUR line- not this one
 package com.example.subhunter;
 
-// These are all the classes of other people's
-// (Android) code that we use in Sub Hunt
+/*
+    Josh Dye and Corliss Yang
+ */
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -17,15 +19,11 @@ import android.widget.ImageView;
 
 public class SubHunter extends Activity {
 
-    // These variables can be "seen"
-    // throughout the SubHunter class
     static int numberHorizontalPixels;
     static int numberVerticalPixels;
     static int blockSize;
     static int gridWidth = 40;
     static int gridHeight;
-
-    static int shotsTaken;
 
 
     // Here are all the objects(instances)
@@ -33,14 +31,6 @@ public class SubHunter extends Activity {
     static ImageView gameView;
     static Bitmap blankBitmap;
     static Canvas canvas;
-
-    /*
-        Android runs this code just before
-        the app is seen by the player.
-        This makes it a good place to add
-        the code that is needed for
-        the one-time setup.
-     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +50,6 @@ public class SubHunter extends Activity {
 
         // Initialize all the objects ready for drawing
         blankBitmap = Bitmap.createBitmap(numberHorizontalPixels, numberVerticalPixels, Bitmap.Config.ARGB_8888);
-
         canvas = new Canvas(blankBitmap);
         gameView = new ImageView(this);
 
