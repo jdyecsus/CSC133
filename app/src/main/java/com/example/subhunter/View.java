@@ -56,7 +56,7 @@ public class View extends Game{
         paint.setTextSize(blockSize * 2);
         paint.setColor(Color.argb(255, 0, 0, 255));
         canvas.drawText(
-                "Shots Taken: " + shotsTaken +
+                "Shots Taken: " + TouchInterface.getShotsTaken() +
                         "  Distance: " + distanceFromSub,
                 blockSize, blockSize * 1.75f,
                 paint);

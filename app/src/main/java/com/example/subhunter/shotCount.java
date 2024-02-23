@@ -1,16 +1,33 @@
 //package com.example.subhunter;
 //
+//
+////rename this to whatever it will be used for
 //public class shotCount {
+//    private int horizontalTouched, verticalTouched;
 //
-//        // Getter
-//        public static int getShotCount() {
-//            return shotsTaken;
-//        }
+//    //Constructor
+//    shotCount(){
+//        this.horizontalTouched=-100;
+//        this.verticalTouched=-100;
+//    }
 //
-//        // Setter
-//        public void takeShot(int ShotCount) {
-//            this.shotsTaken = ShotCount;
-//        }
+//    //Setters
+//    public void setHorizontalTouched(float horizontalTouched) {
+//        this.horizontalTouched = (int)horizontalTouched;
+//    }
 //
-//        public static void resetCount() { this.shotsTaken=0; }
+//    public void setverticalTouched(float verticalTouched) {
+//        this.verticalTouched = (int)verticalTouched;
+//    }
+//
+//    //Getters
+//    public int getHorizontalTouched() {
+//        return horizontalTouched;
+//    }
+//
+//    public int getVerticalTouched() {
+//        return verticalTouched;
+//    }
+//
+//
 //}

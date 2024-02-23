@@ -15,6 +15,8 @@ public class TouchInterface extends View{
 
     public static void resetCount() { shotsTaken=0; }
 
+    public static int getShotsTaken() { return shotsTaken;}
+
     static void takeShot(float touchX, float touchY){
         Log.d("Debugging", "In takeShot");
 

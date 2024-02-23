@@ -20,6 +20,5 @@ public class Game extends  SubHunter{
         sub.setSubVerticalPosition(random.nextInt(gridHeight));
 
         Log.d("Debugging", "In newGame");
-        View.draw();
     }
 }
