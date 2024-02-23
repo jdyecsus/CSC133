@@ -71,6 +71,7 @@ public class SubHunter extends Activity {
 
         Log.d("Debugging", "In onCreate");
         Game.newGame();
+        View.draw();
     }
 
     /*

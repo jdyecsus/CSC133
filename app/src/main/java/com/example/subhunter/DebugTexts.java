@@ -21,7 +21,7 @@ public class DebugTexts extends TouchInterface{
         debugFormula("subHorizontalPosition", sub.getSubHorizontalPosition(),  10);
         debugFormula("subVerticalPosition",  sub.getSubVerticalPosition(),  11);
 
-        debugFormula("shotsTaken", shotsTaken, 13);
+        debugFormula("shotsTaken", TouchInterface.getShotsTaken(), 13);
 
         debugBoolean("hit", hit, 12);
         debugBoolean("debugging", debugging,  14);
