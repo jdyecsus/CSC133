@@ -16,11 +16,16 @@ import android.view.Display;
 import android.widget.ImageView;
 
 public class SubHunter extends Activity {
+    TouchInterface touchInterface;
+    Game Game;
+
+    View View;
+
 
     // These variables can be "seen"
     // throughout the SubHunter class
      private int numberHorizontalPixels, numberVerticalPixels;
-     private int blockSize;
+     private int blockSize=0;
     private final int gridWidth = 40;
     private int gridHeight;
 
@@ -129,7 +134,7 @@ public class SubHunter extends Activity {
 
             // Process the player's shot by passing the
             // coordinates of the player's finger to takeShot
-            TouchInterface.takeShot(motionEvent.getX(), motionEvent.getY());
+            touchInterface.takeShot(motionEvent.getX(), motionEvent.getY());
         }
 
         return true;

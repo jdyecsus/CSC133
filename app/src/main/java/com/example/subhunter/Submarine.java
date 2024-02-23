@@ -3,6 +3,7 @@ package com.example.subhunter;
 public class Submarine {
     private int subHorizontalPosition;
     private int subVerticalPosition;
+
 //Constructor
     Submarine(int subHorizontalPosition, int subVerticalPosition){
         this.subHorizontalPosition=subHorizontalPosition;

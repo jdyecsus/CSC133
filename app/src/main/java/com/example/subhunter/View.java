@@ -4,7 +4,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.Log;
 
-public class View extends Game{
+public class View extends SubHunter{
     /*
         Here we will do all the drawing.
         The grid lines, the HUD and
@@ -12,8 +12,15 @@ public class View extends Game{
      */
      boolean debugging = true;
      Paint paint=new Paint();
+     shotCount shot=new shotCount();
 
+    TouchInterface touchInterface;
 
+    DebugTexts debugTexts;
+
+    SubHunter subHunter;
+
+    int blockSize=subHunter.getBlockSize();
 
      void draw() {
         gameView.setImageBitmap(blankBitmap);
@@ -39,10 +46,10 @@ public class View extends Game{
         }
 
         // Draw the player's shot
-        canvas.drawRect(horizontalTouched * blockSize,
-                verticalTouched * blockSize,
-                (horizontalTouched * blockSize) + blockSize,
-                (verticalTouched * blockSize)+ blockSize,
+        canvas.drawRect(shot.getHorizontalTouched() * blockSize,
+                shot.getVerticalTouched() * blockSize,
+                (shot.getHorizontalTouched() * blockSize) + blockSize,
+                (shot.getVerticalTouched() * blockSize)+ blockSize,
                 paint );
 
 
@@ -51,15 +58,15 @@ public class View extends Game{
         paint.setTextSize(blockSize * 2);
         paint.setColor(Color.argb(255, 0, 0, 255));
         canvas.drawText(
-                "Shots Taken: " + shotsTaken +
-                        "  Distance: " + distanceFromSub,
+                "Shots Taken: " + touchInterface.getShotsTaken() +
+                        "  Distance: " + touchInterface.getDistanceFromSub(),
                 blockSize, blockSize * 1.75f,
                 paint);
 
 
         Log.d("Debugging", "In draw");
         if (debugging) {
-            DebugTexts.printDebuggingText();
+            debugTexts.printDebuggingText();
         }
     }
 

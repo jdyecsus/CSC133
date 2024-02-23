@@ -7,14 +7,27 @@ public class TouchInterface extends Game{
     private int shotsTaken, distanceFromSub;
     private boolean hit;
 
+    View View;
+    EndGame EndGame;
+    shotCount shot;
+
+    SubHunter subHunter;
+
+    int blockSize = subHunter.getBlockSize();
+
+
+
+    public void setShotsTaken(int shotsTaken){
+        this.shotsTaken=shotsTaken;
+    }
 
     public int getShotsTaken() {
 
         return shotsTaken;
     }
 
-    public void setShotsTaken(int shotsTaken) {
-        this.shotsTaken = shotsTaken;
+    public void addShotsTaken() {
+        this.shotsTaken++;
     }
 
     public int getDistanceFromSub() {
@@ -23,7 +36,6 @@ public class TouchInterface extends Game{
     }
 
     public void setDistanceFromSub(int distanceFromSub) {
-
         this.distanceFromSub = distanceFromSub;
     }
 
@@ -52,37 +64,37 @@ public class TouchInterface extends Game{
         Log.d("Debugging", "In takeShot");
 
         // Add one to the shotsTaken variable
-        shotsTaken++;
+        addShotsTaken();
 
 
         // Convert the float screen coordinates
         // into int grid coordinates
-         shotCount shot=new shotCount();
+
          shot.setHorizontalTouched((int)(touchX/ blockSize));
         shot.setverticalTouched( (int)(touchY/ blockSize));
 
          // Did the shot hit the sub?
-        setHit(horizontalTouched == sub.getSubHorizontalPosition()
-                && verticalTouched == sub.getSubVerticalPosition());
+        setHit(shot.getHorizontalTouched() == sub.getSubHorizontalPosition()
+                && shot.getVerticalTouched() == sub.getSubVerticalPosition());
 
         // How far away horizontally and vertically
         // was the shot from the sub
-        int horizontalGap = horizontalTouched -
+        int horizontalGap = shot.getHorizontalTouched() -
                 sub.getSubHorizontalPosition();
-        int verticalGap = verticalTouched -
+        int verticalGap = shot.getVerticalTouched() -
                 sub.getSubVerticalPosition();
 
         // Use Pythagoras's theorem to get the
         // distance travelled in a straight line
-        distanceFromSub = (int)Math.sqrt(
+         setDistanceFromSub ((int)Math.sqrt(
                 Math.pow(horizontalGap,2)+
-                        (Math.pow(verticalGap,2)));
+                        (Math.pow(verticalGap,2))));
 
 //        while(!hit){ View.draw(); }
 //        EndGame.boom();
 
         // If there is a hit call boom
-        if(isHit()==true)
+        if(isHit())
             EndGame.boom();
             // Otherwise call draw as usual
         else View.draw();

@@ -2,7 +2,7 @@
 package com.example.subhunter;
 
 
-
+//rename this to whatever it will be used for
 public class shotCount {
     private int horizontalTouched, verticalTouched;
 

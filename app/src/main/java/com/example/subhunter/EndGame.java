@@ -28,6 +28,7 @@ public class EndGame extends View{
                 blockSize * 18, paint);
 
         // Start a new game
-        Game.newGame();
+        Game game = new Game();
+        game.newGame();
     }
 }

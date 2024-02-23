@@ -12,17 +12,17 @@ public class Game extends  SubHunter{
         and after the player wins a game.
      */
     SubHunter subHunter= new SubHunter();
+    TouchInterface touchInterface= new TouchInterface();
+    Random random = new Random();
+
     int gridWidth= subHunter.getGridWidth();
     int gridHeight= subHunter.getGridHeight();
 
-
-    Random random = new Random();
-    Submarine sub= new Submarine(
-            random.nextInt(gridWidth),
-            random.nextInt(gridHeight));
+    Submarine sub= new Submarine(random.nextInt(gridWidth), random.nextInt(gridHeight));
 
      void newGame(){
-        TouchInterface.resetCount();
+
+         touchInterface.resetCount();
         sub.setSubHorizontalPosition(
                 random.nextInt(
                         subHunter.getGridWidth()));
